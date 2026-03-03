@@ -1,0 +1,17 @@
+#include "MoveSide.h"
+
+UMoveSide::UMoveSide()
+{
+	PrimaryComponentTick.bCanEverTick = true;
+}
+
+void UMoveSide::TickComponent(float DeltaTime, ELevelTick Tick, FActorComponentTickFunction* func)
+{
+	Super::TickComponent(DeltaTime, Tick, func);
+
+	UPROPERTY(EditAnywhere);
+	float speed = 0;
+	
+	FVector location = GetOwner()->GetActorLocation() + FVector(speed, 0.0f, 0.0f);
+	GetOwner()->SetActorLocation(location);
+}
